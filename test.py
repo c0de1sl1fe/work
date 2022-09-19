@@ -1,3 +1,5 @@
+
+import os
 import imp
 from bs4 import BeautifulSoup
 import requests
@@ -10,11 +12,10 @@ from selenium.common.exceptions import NoSuchElementException
 from time import sleep
 
 
-url = "https://yandex.ru/images/search?text=zebra"
-r = requests.get(url);
-r.text
-soup = BeautifulSoup(r.text, "lxml")
-zebra = soup.findAll('img', class_='serp-item__thumb justifier__thumb')
-zebra = zebra + zebra
-print(len(zebra))
-while(array <= 1000)
+def CreateUrl(request, link = 'https://yandex.ru/images/search?text='):
+    return link + request.replace(' ', '%20')
+
+    
+print("test")
+str = "t t"
+print(CreateUrl(str))
