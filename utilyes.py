@@ -9,8 +9,11 @@ import test
 #zebra = soup.findAll('img', class_='serp-item__thumb justifier__thumb')
 
 def CreateUrl(srt):
-    return str.replace(' ', '%20')
-    
+    str.replace(' ', '%20')
+    url = 'https://yandex.ru/images/search?text=' +str+ 'zebra&p=1'
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, 'lxml')
+    soup.find('img', class_='serp-item__thumb justifier__thumb').get('src')
 
 #def getAllBlock(url):
    # r = requests.get(url)
