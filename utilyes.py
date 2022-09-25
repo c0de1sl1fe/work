@@ -13,9 +13,7 @@ def create_url(request):
         request.replace(' ', '%20')
         url = f'https://yandex.ru/images/search?text={request}&p={n}'
         r = requests.get(url)
-        if(n % 10 == 0):
-            sleep(10)
-        sleep(3)
+        sleep(1)
         soup = BeautifulSoup(r.text, 'lxml')
         tmp = soup.find_all('img', class_='serp-item__thumb justifier__thumb')
         for img in tmp:
