@@ -43,35 +43,3 @@ def run(class_name):
     for item in test:
         download_img(item, str(number).zfill(4), class_name)
         number += 1
-
-""" def run():
-    create_dir('rose')
-    create_dir('tulip')
-
-    number = 0
-    for url_of_item in get_image_url("rose"):
-        number += 1
-        download_image(url_of_item, str(number).zfill(4), "rose")
-        print(1)
-        sleep(1)
-
-    number = 0
-    for url_of_item in get_image_url("tulip"):
-        number += 1
-        download_image(url_of_item, str(number).zfill(4), "tulip")
-        print(2)
-        sleep(1)
-    os.chdir(oldpwd)
- """
-
-print(1)
-
-
-
-
-#def getAllBlock(url):
-   # r = requests.get(url)
-  #  soup = BeautifulSoup(r.text, "lxml")
- #   zebra = soup.findAll('img', class_='serp-item__thumb justifier__thumb')
-#    return zebra
-
