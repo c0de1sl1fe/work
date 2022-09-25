@@ -8,7 +8,7 @@ from time import sleep
 def create_url(request):
     data = []
     
-    for n in range(1, 2):
+    for n in range(1, 34):
         print ("Parsing ", n, " page")
         request.replace(' ', '%20')
         url = f'https://yandex.ru/images/search?text={request}&p={n}'
