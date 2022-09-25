@@ -3,7 +3,7 @@ import requests
 import lxml
 import os
 from time import sleep
-import shutil
+
 
 
 def create_url(request):
@@ -22,51 +22,12 @@ def create_url(request):
     return data
 
 
-
-""" 
-def download(img_url, img_name, img_path):
-    src = requests.get(img_url)
-    with open(f'{img_path}/{img_name}.jpg', 'ab') as file:
-        file.write(src)
-    file.close()     """
-
-
-
-
-""" def get_image_url(item):
-    for page in range(1, 2):
-        url = f'https://yandex.ru/images/search?p={page}&text={item}'
-        src = requests.get(url)
-        soup = BeautifulSoup(src.text, "lxml")
-        all_images = soup.find_all("a", class_="serp-item__link")
-        for image in all_images:
-            url_img = "https:" + image.find("img", class_="serp-item__thumb").get("src")
-            yield url_img """
-
-""" def create_dir(src):
-    if not os.path.isdir('dataset'):
-        os.mkdir('dataset')
-    os.chdir('dataset')
-    if not os.path.exists(src):
-        os.mkdir(src)
-    oldpwd = os.getcwd()
- """
 def create_dir(src):
     if not os.path.isdir('dataset'):
         os.mkdir('dataset')
     if not os.path.exists(f'dataset/{src}'):
         os.mkdir(f'dataset/{src}')
 
-
-
-
-""" def download_image(url_image, name, item):
-    src = requests.get(url_image, stream=True)
-    with open(f'{item}/{name}.jpg', 'ab') as file:
-        for iteration in src.iter_content(1024**2):
-            file.write(iteration)
-    file.close()
- """
 
 def download_img(img_url, img_name, img_path):
     response = requests.get(img_url)
