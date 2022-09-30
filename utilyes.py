@@ -7,9 +7,9 @@ from time import sleep
 
 def create_url(request):
     data = []
-    
-    for n in range(1, 36):
-        print ("Parsing ", n, " page")
+
+    for n in range(1, 3):
+        print("Parsing ", n, " page")
         request.replace(' ', '%20')
         url = f'https://yandex.ru/images/search?text={request}&p={n}'
         r = requests.get(url)
@@ -18,12 +18,12 @@ def create_url(request):
         tmp = soup.find_all('img', class_='serp-item__thumb justifier__thumb')
         for img in tmp:
             tmp_url = 'https:' + img.get('src')
-            yield(tmp_url)
+            yield (tmp_url)
 
-        #for img in tmp:
+        # for img in tmp:
          #   test = 'https:' + img.get('src')
           #  data.append(test)
-    #return data
+    # return data
 
 
 def create_dir(src):
@@ -46,6 +46,6 @@ def run(class_name):
     for item in create_url(class_name):
         download_img(item, str(number).zfill(4), class_name)
         number += 1
-        if(number%10 == 0):
+        if (number % 10 == 0):
             print('downloded: ', number)
         sleep(1)
