@@ -8,7 +8,7 @@ from time import sleep
 def create_url(request):
     data = []
 
-    for n in range(1, 3):
+    for n in range(1, 4):
         print("Parsing ", n, " page")
         request.replace(' ', '%20')
         url = f'https://yandex.ru/images/search?text={request}&p={n}'
@@ -35,7 +35,8 @@ def create_dir(src):
 
 def download_img(img_url, img_name, img_path):
     response = requests.get(img_url)
-    file = open(f"dataset/{img_path}/{img_name}.jpg", "wb")
+    path = os.path.join(os.path.join("dataset", img_path), f'{img_name}.jpg')
+    file = open(path, "wb")
     file.write(response.content)
     file.close()
 
