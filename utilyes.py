@@ -8,10 +8,10 @@ from time import sleep
 def create_url(request):
     data = []
 
-    for n in range(1, 4):
+    for n in range(1, 6):
         print("Parsing ", n, " page")
         request.replace(' ', '%20')
-        url = f'https://yandex.ru/images/search?text={request}&p={n}'
+        url = f'https://yandex.ru/images/search?text={request}&p={n + 35}'
         r = requests.get(url)
         sleep(1)
         soup = BeautifulSoup(r.text, 'lxml')
@@ -43,7 +43,7 @@ def download_img(img_url, img_name, img_path):
 
 def run(class_name):
     create_dir(class_name)
-    number = 0
+    number = 0 + 1050
     for item in create_url(class_name):
         download_img(item, str(number).zfill(4), class_name)
         number += 1

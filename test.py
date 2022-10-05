@@ -125,22 +125,31 @@ def remove_duplicate1(path_dir):
 
 def remove_duplicate2(path_dir):
     path = f'dataset/{path_dir}'
+    del_arr = []
     names = os.listdir(path)
     for filename1 in names:
+        del_arr = []
         for filename2 in names:
             img_1 = cv2.imread(f'{path}/{filename1}')
             img_2 = cv2.imread(f'{path}/{filename2}')
             if np.all(cmp(img_1, img_2) == True) and filename1!=filename2:
                 print("DUblicate: ", filename1," and ", filename2)
                 os.remove(f'{path}/{filename2}')
-                names.remove(filename2)
-
+                #names.remove(filename2)
+                del_arr.append(filename2)
+        print(filename1)
+        for i in del_arr:
+            print( 'to delete  ',i)
+            names.remove(i)
+        # names.remove(filename1)
 
 
 
 
 if __name__ == '__main__':
-    remove_duplicate2('bay horse')
+    # remove_duplicate2('bay horse')
+
+    remove_duplicate2('zebra')
     # path_dir = 'tiger'
     # path = f'dataset/{path_dir}'
     # filename1 = os.listdir(path)
