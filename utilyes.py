@@ -8,7 +8,6 @@ import cv2
 import numpy as np
 
 
-
 def cmp(image_1: cv2.Mat, image_2: cv2.Mat) -> bool:
     dsize = (400, 400)
     test_1 = cv2.resize(image_1, dsize)
