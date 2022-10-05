@@ -93,7 +93,7 @@ def download_img(img_url, img_name, img_path):
 
 def run(class_name):
     create_dir(class_name)
-    number = 0 + 1050
+    number = 0
     for item in create_url(class_name):
         download_img(item, str(number).zfill(4), class_name)
         number += 1
