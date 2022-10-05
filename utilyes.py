@@ -1,11 +1,12 @@
 import os
 from time import sleep
+import os.path
 
 from bs4 import BeautifulSoup
 import requests
 import cv2
 import numpy as np
-import os.path
+
 
 
 def cmp(image_1: cv2.Mat, image_2: cv2.Mat) -> bool:
