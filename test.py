@@ -9,3 +9,4 @@ if __name__ == '__main__':
     remove_duplicate_fast('zebra')
     run('tiger')
     remove_duplicate_fast('tiger')
+
