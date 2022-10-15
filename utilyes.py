@@ -61,7 +61,7 @@ def create_url(request):
     for n in range(1, 6):
         print("Parsing ", n, " page")
         request.replace(' ', '%20')
-        url = f'https://yandex.ru/images/search?text={request}&p={n + 35}'
+        url = f'https://yandex.ru/images/search?text={request}&p={n}'
         r = requests.get(url)
         sleep(1)
         soup = BeautifulSoup(r.text, 'lxml')
